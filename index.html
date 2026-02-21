@@ -1,126 +1,186 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Максимке ❤️ С 23 Февраля</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>С 23 Февраля моя любовь!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            color: white;
-            background: url('fon.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        
-      .overlay {
-    position: relative;
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    background: url('fon.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.overlay {
     min-height: 100vh;
-    padding-bottom: 40px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.65);
+    padding: 40px 15px 60px;
 }
 
-
-.overlay::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("heart.gif") center center / cover no-repeat;
-    opacity: 0.35; 
-    pointer-events: none;
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
-        
 
-        h1 {
-            padding-top: 40px;
-            font-size: 30px;
-        }
+p {
+    max-width: 700px;
+    margin: 15px auto;
+    line-height: 1.6;
+    font-size: 17px;
+}
 
-        p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
+.distance {
+    margin-top: 25px;
+    font-size: 16px;
+    opacity: 0.85;
+}
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 10px;
-            flex-wrap: wrap;
-        }
+.timer {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        button {
-            padding: 15px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 10px;
-            background-color: rgb(4, 64, 4);
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
-        button:hover {
-            background-color: #055f32;
-            transform: scale(1.05);
-            
-        }
+button {
+    padding: 14px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0d3b1e;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-      #photo img {
+button:hover {
+    background-color: #145c30;
+    transform: scale(1.05);
+}
+
+#photo {
+    margin-top: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#photo img {
     width: 100%;
+    border-radius: 10px;
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-        @media (max-width: 600px) {
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-            button {
-                width: 80%;
-            }
-        }
-    </style>
+.support {
+    margin-top: 20px;
+    display: none;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+@media (max-width: 600px) {
+    button {
+        width: 85%;
+    }
+}
+</style>
 </head>
 <body>
 
 <div class="overlay">
 
-    <h1>Любимка, с 23 Февраля! </h1>
+<h1>С 23 Февраля.</h1>
 
-    <p>
-        Мой сильный и любимый защитник ❤️  
-        Я горжусь тобой каждый день.  
-        Пусть служба проходит спокойно, а наша встреча будет совсем скоро.
-    </p>
+<p>
+Ты сейчас далеко. И я знаю, что служба — это не всегда просто.  
+Но я правда горжусь тобой.
+</p>
 
-    <div class="buttons ">
-        <button onclick="showPhoto('photo1.jpg')">Ты мое счастье</button>
-        <button onclick="showPhoto('photo2.jpg')">Ты моя любовь</button>
-        <button onclick="showPhoto('photo3.jpg')">Ты моя любимка</button>
-    </div>
+<p>
+Спасибо тебе за силу, характер и спокойствие.  
+Я жду тебя. И это ожидание — осознанное.
+</p>
 
-    <div id="photo"></div>
+<div class="distance">
+Свободный — Таганрог. 7985 км.  
+Это просто расстояние. 
+</div>
+
+<div class="timer">
+До дембеля осталось:
+<div id="countdown"></div>
+</div>
+
+<div class="buttons">
+    <button onclick="showPhoto('photo1.jpg')">Наш момент</button>
+    <button onclick="showPhoto('photo2.jpg')">Мое счастье</button>
+    <button onclick="showPhoto('photo3.jpg')">И так будет снова</button>
+    <button onclick="showSupport()">Если тебе тяжело,то нажми</button>
+</div>
+
+<div id="photo"></div>
+
+<div class="support" id="supportText">
+    Я рядом. Даже если ты это не видишь.  
+    Мы справимся.  
+    И 4 июня 2026 года ты вернёшься домой.
+</div>
 
 </div>
 
 <script>
-    function showPhoto(src) {
-        document.getElementById("photo").innerHTML =
-            "<img src='" + src + "'>";
+function showPhoto(src) {
+    document.getElementById("photo").innerHTML =
+        "<img src='" + src + "'>";
+    document.getElementById("supportText").style.display = "none";
+}
+
+function showSupport() {
+    document.getElementById("photo").innerHTML =
+        "<img src='photo4.jpg'>";
+    document.getElementById("supportText").style.display = "block";
+}
+
+const endDate = new Date("June 4, 2026 00:00:00").getTime();
+
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("countdown").innerHTML =
+        days + " дн. " + hours + " ч. " + minutes + " мин.";
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "Он дома 🤍";
     }
+}, 1000);
 </script>
 
 </body>
-
 </html>
